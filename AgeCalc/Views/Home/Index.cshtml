@@ -1,0 +1,35 @@
+﻿@model AgeCalculatorModel
+
+<div class="calculator-container">
+    <div class="calculator-header">
+        <span>📅</span>
+        <h1>Age Calculator</h1>
+    </div>
+
+    <form asp-action="Calculate" method="post">
+        <div class="input-group">
+            <label>Enter your birth date</label>
+            <input type="date" asp-for="BirthDate" required />
+        </div>
+
+        <button type="submit" class="calculate-button">Calculate Age</button>
+
+        @if (Model.Years.HasValue)
+        {
+            <div class="results">
+                <div class="result-box">
+                    <span class="result-number">@Model.Years</span>
+                    <span class="result-label">years</span>
+                </div>
+                <div class="result-box">
+                    <span class="result-number">@Model.Months</span>
+                    <span class="result-label">months</span>
+                </div>
+                <div class="result-box">
+                    <span class="result-number">@Model.Days</span>
+                    <span class="result-label">days</span>
+                </div>
+            </div>
+        }
+    </form>
+</div>
